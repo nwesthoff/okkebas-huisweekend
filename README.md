@@ -1,16 +1,10 @@
-<p align="center">
-  <a href="https://nilswesthoff.com">
-    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
-  </a>
-</p>
-
-# VanBerlo Internship Report
+# Okkebas Huisweekend Website
 
 # Gatsby ❤️ TypeScript MDX Prismjs ❤️ starter
 
-:tada: I did an internship and this will be my report.
+:tada:
 
-View report at: <https://io-software-report.nilswesthoff.com/>
+View website at: <https://okkebas-huisweekend.netlify.com/>
 
 ## Develop
 
