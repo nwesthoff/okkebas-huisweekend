@@ -1,9 +1,9 @@
-import * as React from 'react';
-import { Link, graphql, StaticQuery } from 'gatsby';
-import styled from 'styled-components';
-import { PostsQueryData } from '../interfaces/PostsQuery.interface';
-import { Typography, Grid } from '@material-ui/core';
-import { muiTheme } from '../config/theme';
+import * as React from "react";
+import { Link, graphql, StaticQuery } from "gatsby";
+import styled from "styled-components";
+import { PostsQueryData } from "../interfaces/PostsQuery.interface";
+import { Typography, Grid } from "@material-ui/core";
+import { muiTheme } from "../config/theme";
 
 const Post = styled.article`
   border-left: 5px solid ${muiTheme.palette.primary.dark};
@@ -45,7 +45,7 @@ const ChapterList = () => (
                 container
                 direction="column"
                 spacing={8}
-                style={{ width: '100%' }}
+                style={{ width: "100%" }}
               >
                 <Grid item>
                   <Typography variant="h3" component="h3">
@@ -75,14 +75,6 @@ const LISTING_QUERY = graphql`
             title
             subtitle
             date(formatString: "MMMM DD, YYYY")
-            image {
-              childImageSharp {
-                fluid {
-                  src
-                  srcSet
-                }
-              }
-            }
           }
         }
       }

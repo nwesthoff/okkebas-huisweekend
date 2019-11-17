@@ -9,19 +9,10 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
     "gatsby-plugin-typescript",
-    "gatsby-transformer-remark",
-    "gatsby-image",
-    "gatsby-plugin-styled-components",
-    "gatsby-plugin-offline",
     {
-      resolve: `gatsby-mdx`,
+      resolve: "gatsby-transformer-remark",
       options: {
-        decks: [],
-        defaultLayouts: {
-          default: require.resolve("./src/components/postLayout.tsx")
-        },
-        extensions: [".mdx", ".md"],
-        gatsbyRemarkPlugins: [
+        plugins: [
           {
             resolve: "gatsby-remark-embed-video",
             options: {
@@ -31,36 +22,28 @@ module.exports = {
               noIframeBorder: true
             }
           },
-          {
-            resolve: "gatsby-remark-prismjs",
-            options: {
-              classPrefix: "language-",
-              inlineCodeMarker: {
-                tsx: "tsx"
-              },
-              aliases: {}
-            }
-          },
-          {
-            resolve: "gatsby-remark-images",
-            options: {
-              maxWidth: 860,
-              quality: 80,
-              showCaptions: true,
-              linkImagesToOriginal: false,
-              withWebP: process.env.NODE_ENV === "production" ? true : false
-            }
-          },
-          { resolve: `gatsby-remark-copy-linked-files` }
+          "gatsby-remark-responsive-iframe"
         ]
       }
     },
+    "gatsby-image",
+    "gatsby-plugin-styled-components",
+    "gatsby-plugin-offline",
     {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "posts",
         path: `${__dirname}/src/posts`,
         ignore: ["**/.tsx*"]
+      }
+    },
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        defaultLayouts: {
+          posts: require.resolve("./src/components/postLayout.tsx"),
+          default: require.resolve("./src/components/postLayout.tsx")
+        }
       }
     },
     {
