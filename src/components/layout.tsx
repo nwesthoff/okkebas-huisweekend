@@ -1,15 +1,15 @@
-import * as React from 'react';
-import Helmet from 'react-helmet';
-import { RouterProps } from '@reach/router';
-import { StaticQuery, graphql } from 'gatsby';
-import styled from 'styled-components';
+import * as React from "react";
+import Helmet from "react-helmet";
+import { RouterProps } from "@reach/router";
+import { StaticQuery, graphql } from "gatsby";
+import styled from "styled-components";
 
-import Header from './header';
-import { MDXProvider } from '@mdx-js/tag';
-import { LayoutQueryData } from '../interfaces/LayoutQuery.interface';
-import { Grid, MuiThemeProvider } from '@material-ui/core';
-import { muiTheme } from '../config/theme';
-import mdxComponents from './mdxcomponents/MDXComponents';
+import Header from "./header";
+import { MDXProvider } from "@mdx-js/tag";
+import { LayoutQueryData } from "../interfaces/LayoutQuery.interface";
+import { Grid, MuiThemeProvider } from "@material-ui/core";
+import { muiTheme } from "../config/theme";
+import mdxComponents from "./mdxcomponents/MDXComponents";
 
 const MainLayout = styled.main`
   margin: 1rem auto;
@@ -40,8 +40,8 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ children }) => (
             <Helmet
               title={title}
               meta={[
-                { name: 'description', content: description },
-                { name: 'keywords', content: keywords || 'keywords' },
+                { name: "description", content: description },
+                { name: "keywords", content: keywords || "keywords" }
               ]}
             >
               <html lang="en" />
@@ -51,21 +51,19 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ children }) => (
               container
               justify="center"
               direction="row"
-              style={{ marginTop: '70px' }}
+              style={{ marginTop: "70px" }}
             >
               <Grid
                 item
                 style={{
-                  width: '860px',
-                  maxWidth: '100%',
-                  padding: '0 1.2rem',
+                  width: "860px",
+                  maxWidth: "100%",
+                  padding: "0 1.2rem"
                 }}
               >
-                <MainLayout>
-                  <MDXProvider components={mdxComponents}>
-                    {children}
-                  </MDXProvider>
-                </MainLayout>
+                <MDXProvider components={mdxComponents}>
+                  <MainLayout>{children}</MainLayout>
+                </MDXProvider>
               </Grid>
             </Grid>
           </>

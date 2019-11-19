@@ -1,9 +1,9 @@
-import * as React from 'react';
-import { RouterProps } from '@reach/router';
-import Layout from './layout';
-import { PostQueryData } from '../interfaces/PostQuery.interface';
-import NextPostLink from './NextPostLink';
-import { Typography } from '@material-ui/core';
+import * as React from "react";
+import { RouterProps } from "@reach/router";
+import Layout from "./layout";
+import { PostQueryData } from "../interfaces/PostQuery.interface";
+import NextPostLink from "./NextPostLink";
+import { Typography } from "@material-ui/core";
 
 type PostLayoutProps = PostQueryData & RouterProps;
 
@@ -18,13 +18,6 @@ const PostLayout: React.FunctionComponent<PostLayoutProps> = props => {
           {pageContext.frontmatter.subtitle}
         </Typography>
         {props.children}
-        {pageContext.next ? (
-          <NextPostLink
-            path={`/posts${pageContext.next.frontmatter.path}`}
-            title={pageContext.next.frontmatter.title}
-            subtitle={pageContext.next.frontmatter.subtitle}
-          />
-        ) : null}
       </Layout>
     );
   }

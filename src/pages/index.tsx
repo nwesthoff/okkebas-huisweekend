@@ -10,10 +10,11 @@ import {
   ListItemText,
   Divider
 } from "@material-ui/core";
+import ChapterList from "../components/ChapterList";
 
 const IndexPage: React.SFC<RouterProps> = ({ location }) => (
   <Layout location={location}>
-    <Grid container spacing={32} direction="column">
+    <Grid container spacing={4} direction="column">
       <Grid item>
         <Typography variant="h1">Okkebas Huisweekend</Typography>
         <Typography variant="h2" color="primary" gutterBottom>
@@ -27,19 +28,8 @@ const IndexPage: React.SFC<RouterProps> = ({ location }) => (
           hints, tips, tricks, aanwijzingen, inlichtingen en instructies
           ontvangen.
         </Typography>
-        <Divider style={{ margin: "2rem 0" }}></Divider>
-        <Typography variant="h3">Paklijst</Typography>
-        <List>
-          <ListItem>
-            <ListItemText primary="Laat me die shit vertellen" />
-          </ListItem>
-          <ListItem>
-            <ListItemText primary="Laat me die shit vertellen" />
-          </ListItem>
-          <ListItem>
-            <ListItemText primary="Laat me die shit vertellen" />
-          </ListItem>
-        </List>
+
+        <ChapterList />
       </Grid>
     </Grid>
   </Layout>

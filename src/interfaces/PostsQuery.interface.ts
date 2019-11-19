@@ -7,6 +7,7 @@ interface Post {
   subtitle?: string;
   date: string;
   image?: ChildImageSharp;
+  releaseDate?: Date;
 }
 
 export interface PostsQueryData {

@@ -1,14 +1,7 @@
-import * as React from 'react';
-import { StaticQuery, graphql, Link } from 'gatsby';
-import {
-  List,
-  ListItem,
-  ListItemText,
-  Divider,
-  Typography,
-  ListItemIcon,
-} from '@material-ui/core';
-import HomeIcon from '@material-ui/icons/Home';
+import * as React from "react";
+import { StaticQuery, graphql, Link } from "gatsby";
+import { List, ListItem, ListItemText } from "@material-ui/core";
+import { isAfter, parse } from "date-fns";
 
 const Sidebar = () => (
   <StaticQuery
@@ -22,6 +15,7 @@ const Sidebar = () => (
                 title
                 subtitle
                 path
+                releaseDate
               }
             }
           }
@@ -29,32 +23,14 @@ const Sidebar = () => (
       }
     `}
     render={data => {
-      const posts = data.allMdx.edges.map(edge => edge.node);
+      const posts = data.allMdx.edges
+        .map(edge => edge.node)
+        
 
       return (
         <div>
           {posts && posts.length > 0 ? (
-            <List style={{ paddingTop: '0' }}>
-              <ListItem style={{ padding: '24px 16px' }}>
-                <ListItemText
-                  primary={
-                    <Typography variant="h3" component="h2" color="primary">
-                      Digital Fabrication Lab
-                    </Typography>
-                  }
-                  secondary="Software Report"
-                />
-              </ListItem>
-              <Divider />
-              <Link to={`/`} style={{ textDecoration: 'none', color: 'white' }}>
-                <ListItem button>
-                  <ListItemText primary="Home" secondary="go home" />
-                  <ListItemIcon>
-                    <HomeIcon />
-                  </ListItemIcon>
-                </ListItem>
-              </Link>
-              <Divider />
+            <List style={{ paddingTop: "0" }}>
               {posts.map(post => {
                 const currentPage = () => {
                   const currentPath = location.pathname;
@@ -69,13 +45,13 @@ const Sidebar = () => (
                 return (
                   <Link
                     to={`/posts${post.frontmatter.path}`}
-                    style={{ textDecoration: 'none' }}
+                    style={{ textDecoration: "none" }}
                   >
                     <ListItem button key={post.id} selected={currentPage()}>
                       <ListItemText
                         primary={post.frontmatter.title}
                         secondary={
-                          <div style={{ maxWidth: '18rem' }}>
+                          <div style={{ maxWidth: "18rem" }}>
                             {post.frontmatter.subtitle}
                           </div>
                         }

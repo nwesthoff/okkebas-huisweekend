@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { PostsQueryData } from "../interfaces/PostsQuery.interface";
 import { Typography, Grid } from "@material-ui/core";
 import { muiTheme } from "../config/theme";
+import { isAfter } from "date-fns";
 
 const Post = styled.article`
   border-left: 5px solid ${muiTheme.palette.primary.dark};
@@ -36,29 +37,33 @@ const ChapterList = () => (
     query={LISTING_QUERY}
     render={({ allMdx }: PostsQueryData) =>
       allMdx.edges!.map(({ node }) => {
-        const { path, title } = node.frontmatter;
+        const { path, title, releaseDate } = node.frontmatter;
 
-        return (
-          <WrapLink key={path} to={`/posts${path}`}>
-            <Post>
-              <Grid
-                container
-                direction="column"
-                spacing={8}
-                style={{ width: "100%" }}
-              >
-                <Grid item>
-                  <Typography variant="h3" component="h3">
-                    {title}
-                  </Typography>
-                  <Typography variant="h4" component="h4">
-                    {node.frontmatter.subtitle}
-                  </Typography>
+        if (releaseDate && isAfter(new Date(), new Date(releaseDate))) {
+          return (
+            <WrapLink key={path} to={`/posts${path}`}>
+              <Post>
+                <Grid
+                  container
+                  direction="column"
+                  spacing={2}
+                  style={{ width: "100%" }}
+                >
+                  <Grid item>
+                    <Typography variant="h3" component="h3">
+                      {title}
+                    </Typography>
+                    <Typography variant="h4" component="h4">
+                      {node.frontmatter.subtitle}
+                    </Typography>
+                  </Grid>
                 </Grid>
-              </Grid>
-            </Post>
-          </WrapLink>
-        );
+              </Post>
+            </WrapLink>
+          );
+        } else {
+          return null;
+        }
       })
     }
   />
@@ -75,6 +80,7 @@ const LISTING_QUERY = graphql`
             title
             subtitle
             date(formatString: "MMMM DD, YYYY")
+            releaseDate
           }
         }
       }
