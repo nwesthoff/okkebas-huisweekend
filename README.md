@@ -1,12 +1,12 @@
 # Okkebas Huisweekend Website
 
-# Gatsby ❤️ TypeScript MDX Prismjs ❤️ starter
+## Gatsby Starter Blog MDX
 
 :tada:
 
-View website at: <https://okkebas-huisweekend.netlify.com/>
+View website at: <https://okkebas-huisweekend.afwasbingo.nl/>
 
-## Develop
+### Develop
 
 Run `npm run dev` to serve your website on <http://localhost:8000>.
 
