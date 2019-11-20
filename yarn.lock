@@ -4223,6 +4223,11 @@ ecc-jsbn@~0.1.1:
     jsbn "~0.1.0"
     safer-buffer "^2.1.0"
 
+ecleptic-react-weather-component@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/ecleptic-react-weather-component/-/ecleptic-react-weather-component-2.2.1.tgz#8960d1d54f090ad21abd294e666466f71d21fe75"
+  integrity sha512-F83mBT6g6I8mpzO3Pg40uyy+Q/HUR63PyS5rwVIm5jns1ofal/ajtSQcYqEtjXKwBraHK4Mia9djNrwC4uIxTg==
+
 ee-first@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"

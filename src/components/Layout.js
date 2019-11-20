@@ -14,10 +14,10 @@ class Layout extends React.Component {
         <Fragment>
           <h1
             style={{
-              ...scale(1.2),
               color: '#B54D49',
               marginBottom: rhythm(1 / 2),
               marginTop: 0,
+              ...scale(1.2),
             }}
           >
             <Link
