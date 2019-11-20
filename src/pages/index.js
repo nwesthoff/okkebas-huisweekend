@@ -42,13 +42,12 @@ class BlogIndex extends React.Component {
                 </h3>
                 <h4
                   style={{
-                    marginBottom: rhythm(1 / 8),
+                    marginBottom: rhythm(1 / 2),
                     marginTop: rhythm(1 / 4),
                   }}
                 >
                   {subtitle}
                 </h4>
-                <small>{node.frontmatter.date}</small>
                 <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
               </div>
             )
