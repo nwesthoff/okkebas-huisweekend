@@ -26,8 +26,6 @@ export default class Weather extends React.Component {
       .then(forecast => {
         this.setState({ forecast })
       })
-
-    console.log(API_URL)
   }
 
   renderWeather() {
